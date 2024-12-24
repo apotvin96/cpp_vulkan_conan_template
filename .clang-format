@@ -1,0 +1,17 @@
+﻿---
+AccessModifierOffset: -4
+AlignConsecutiveAssignments: 'true'
+AlignOperands: 'false'
+ColumnLimit: '100'
+CompactNamespaces: 'false'
+ContinuationIndentWidth: '4'
+Cpp11BracedListStyle: 'false'
+IndentWidth: '4'
+FixNamespaceComments: 'false'
+NamespaceIndentation: All
+PointerAlignment: Left
+SpaceAfterTemplateKeyword: 'false'
+SpaceBeforeParens: ControlStatements
+SortIncludes: 'false'
+
+...
