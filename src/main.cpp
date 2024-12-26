@@ -197,10 +197,9 @@ int main() {
 
     {
         int width, height, numComp;
-        // float* hdrData = stbi_loadf("assets/textures/wilderness.hdr", &width, &height, &numComp,
-        // 4);
-        float* hdrData =
-            stbi_loadf("assets/textures/night_stars.hdr", &width, &height, &numComp, 4);
+        float* hdrData = stbi_loadf("assets/textures/wilderness.hdr", &width, &height, &numComp, 4);
+        // float* hdrData =
+        //     stbi_loadf("assets/textures/night_stars.hdr", &width, &height, &numComp, 4);
         auto hdrTexture = graphicsContext->createHDRTexture(width, height, 4, hdrData, false);
         stbi_image_free(hdrData);
 
@@ -605,9 +604,9 @@ int main() {
         graphicsContext->createTexture(width, height, 4, ColorSpace::LINEAR, normalData, true);
     graphicsContext->descriptorSetAddImage(colorDescriptorSet, 2, normalTexture);
 
-    // std::vector<VertexNormalMapped> vertices = loadFromGltf("assets/models/monkey.glb");
-    std::vector<VertexNormalMapped> vertices = loadFromGltf("assets/models/sphere.glb");
-    auto vertexBuffer                        = graphicsContext->createVertexBuffer(
+    std::vector<VertexNormalMapped> vertices = loadFromGltf("assets/models/monkey.glb");
+    // std::vector<VertexNormalMapped> vertices = loadFromGltf("assets/models/sphere.glb");
+    auto vertexBuffer = graphicsContext->createVertexBuffer(
         vertices.data(), uint32_t(vertices.size() * sizeof(VertexNormalMapped)));
 
     std::vector<Vertex> cubemapVertices = loadFromObj("assets/models/cube.obj");
