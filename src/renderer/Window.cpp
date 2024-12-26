@@ -2,7 +2,7 @@
 #include "Window.hpp"
 
 #include "GraphicsContext.hpp"
-#include "Logger.hpp"
+#include "../Logger.hpp"
 
 Window::Window(GLFWwindow* window) : window(window) {
     glfwSetWindowSizeCallback(window, windowResizeCallback);

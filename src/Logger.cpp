@@ -1,4 +1,4 @@
-#include "../pch.hpp"
+#include "pch.hpp"
 #include "Logger.hpp"
 
 std::vector<spdlog::sink_ptr> Logger::sinks;

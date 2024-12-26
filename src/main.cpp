@@ -16,7 +16,7 @@
 #include "glfw/glfw3.h"
 
 #include "renderer/GraphicsContext.hpp"
-#include "renderer/Logger.hpp"
+#include "Logger.hpp"
 
 struct CameraData {
     glm::mat4 view;

@@ -4,7 +4,7 @@
 #include "Helper/Conversions.hpp"
 #include "Helper/Debug.hpp"
 #include "Helper/Initializers.hpp"
-#include "Logger.hpp"
+#include "../Logger.hpp"
 
 GraphicsContext::GraphicsContext(std::shared_ptr<Window> windowRef, VkInstance instance,
                                  VkDevice device, VkPhysicalDevice physicalDevice,
