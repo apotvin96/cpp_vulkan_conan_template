@@ -1,7 +1,7 @@
 #include "../../pch.hpp"
 #include "Buffer.hpp"
 
-#include "../Logger.hpp"
+#include "../../Logger.hpp"
 
 VertexBuffer::VertexBuffer(VmaAllocator allocator, VkBuffer buffer, VmaAllocation allocation)
     : allocator(allocator), buffer(buffer), allocation(allocation) {}

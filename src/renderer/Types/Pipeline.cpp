@@ -1,7 +1,7 @@
 #include "../../pch.hpp"
 #include "Pipeline.hpp"
 
-#include "../Logger.hpp"
+#include "../../Logger.hpp"
 
 ShaderModule::ShaderModule(VkDevice device, VkShaderModule shaderModule,
                            VkPipelineShaderStageCreateInfo shaderStageInfo,

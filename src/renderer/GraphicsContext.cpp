@@ -1788,10 +1788,22 @@ std::unique_ptr<GraphicsContext> GraphicsContext::create(std::shared_ptr<Window>
     uint32_t graphicsQueueFamily = vkbDevice.get_queue_index(vkb::QueueType::graphics).value();
     Logger::renderer_logger->info("  - Graphics Queue Family: {0}", graphicsQueueFamily);
 
-    VkQueue transferQueue = vkbDevice.get_dedicated_queue(vkb::QueueType::transfer).value();
-    uint32_t transferQueueFamily =
-        vkbDevice.get_dedicated_queue_index(vkb::QueueType::transfer).value();
-    Logger::renderer_logger->info("  - Transfer Queue Family: {0}", transferQueueFamily);
+    VkQueue transferQueue;
+    uint32_t transferQueueFamily;
+
+    vkb::Result<VkQueue> transferQueueResult = vkbDevice.get_queue(vkb::QueueType::transfer);
+    vkb::Result<uint32_t> transferQueueFamilyResult =
+        vkbDevice.get_dedicated_queue_index(vkb::QueueType::transfer);
+    if (!transferQueueResult.has_value() || !transferQueueFamilyResult.has_value()) {
+        Logger::renderer_logger->warn(
+            "No dedicated transfer queue available, using the graphics queue");
+
+        transferQueue       = graphicsQueue;
+        transferQueueFamily = graphicsQueueFamily;
+    } else {
+        transferQueue       = transferQueueResult.value();
+        transferQueueFamily = transferQueueFamilyResult.value();
+    }
 
     return std::make_unique<GraphicsContext>(
         windowRef, instance, device, physicalDevice, debugMessenger, physicalDeviceProperties,

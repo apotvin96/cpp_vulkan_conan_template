@@ -1,7 +1,7 @@
 #include "../../pch.hpp"
 #include "Texture.hpp"
 
-#include "../Logger.hpp"
+#include "../../Logger.hpp"
 
 Texture::Texture(VkDevice device, VmaAllocator allocator, VmaAllocation allocation, VkImage image,
                  VkImageView imageView)

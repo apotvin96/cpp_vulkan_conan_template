@@ -1,7 +1,13 @@
 import platform
 import subprocess
 
+def RunSubmoduleGet():
+    print("Running Submodule Get")
+    subprocess.run(('git', 'submodule', 'update', '--init', '--recursive'))
+
 def RunConan(build_type):
+    print("Running Conan")
+
     subprocess.run((
         'conan', 'install', '.', 
         '--build', 'missing', 
@@ -37,6 +43,7 @@ def RunCMake():
             ), cwd='./build')
 
 if __name__ == "__main__":
+    RunSubmoduleGet()
     RunConan("Debug")
     #RunConan("Release")
     RunCMake()  

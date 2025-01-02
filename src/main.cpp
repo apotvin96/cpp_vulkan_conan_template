@@ -25,7 +25,7 @@ struct Vertex {
 int main() {
     Logger::init();
 
-    auto window = Window::create("PBR Demo", 1920, 1080);
+    auto window = Window::create("PBR Demo", 1280, 720);
 
     auto graphicsContext = GraphicsContext::create(window);
 
@@ -42,9 +42,8 @@ int main() {
 
     {
         int width, height, numComp;
-        float* hdrData = stbi_loadf("assets/textures/wilderness.hdr", &width, &height, &numComp, 4);
-        // float* hdrData =
-        //     stbi_loadf("assets/textures/night_stars.hdr", &width, &height, &numComp, 4);
+        float* hdrData =
+            stbi_loadf("assets/textures/night_stars.hdr", &width, &height, &numComp, 4);
         auto hdrTexture = graphicsContext->createHDRTexture(width, height, 4, hdrData, false);
         stbi_image_free(hdrData);
 
@@ -214,6 +213,7 @@ int main() {
                 break;
             }
             }
+
             viewMatrix = captureProjection * viewMatrix;
 
             graphicsContext->beginRenderPass(equiToCubeCommandBuffer, convolutionRenderPass, 32,
@@ -457,9 +457,6 @@ int main() {
     Mesh renderMesh                      = Mesh::loadFromGltf("assets/models/monkey.glb");
     std::vector<MeshVertex> meshVertices = std::vector<MeshVertex>();
     for (auto vertex : renderMesh.vertices) {
-        std::cout << vertex.position.x << " " << vertex.position.y << " " << vertex.position.z
-                  << std::endl;
-
         MeshVertex vert = {};
         vert.position   = vertex.position;
         vert.normal     = vertex.normal;

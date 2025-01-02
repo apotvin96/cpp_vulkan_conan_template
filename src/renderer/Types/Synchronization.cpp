@@ -1,7 +1,7 @@
 #include "../../pch.hpp"
 #include "Synchronization.hpp"
 
-#include "../Logger.hpp"
+#include "../../Logger.hpp"
 
 FrameBasedFence::FrameBasedFence(VkDevice device, std::array<VkFence, FRAME_OVERLAP> fences)
     : device(device), fences(fences) {}
