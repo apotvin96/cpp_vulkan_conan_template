@@ -24,13 +24,13 @@ GLFWwindow* Window::get() { return window; }
 
 int Window::getWidth() {
     int width, height;
-    glfwGetWindowSize(window, &width, &height);
+    glfwGetFramebufferSize(window, &width, &height);
     return width;
 }
 
 int Window::getHeight() {
     int width, height;
-    glfwGetWindowSize(window, &width, &height);
+    glfwGetFramebufferSize(window, &width, &height);
     return height;
 }
 

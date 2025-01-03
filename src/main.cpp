@@ -566,7 +566,9 @@ int main() {
         glm::mat4 view   = glm::translate(
             glm::rotate(glm::mat4(1.0f), playerRot.y, glm::vec3(0.0, 1.0, 0.0)), camPos);
         glm::mat4 viewInverse = glm::inverse(view);
-        glm::mat4 projection  = glm::perspective(glm::radians(45.f), 1600.f / 900.f, 0.1f, 200.0f);
+        glm::mat4 projection  = glm::perspective(
+            glm::radians(45.f), ((float)window->getWidth()) / ((float)window->getHeight()), 0.1f,
+            200.0f);
         projection[1][1] *= -1;
 
         CameraData camData;
